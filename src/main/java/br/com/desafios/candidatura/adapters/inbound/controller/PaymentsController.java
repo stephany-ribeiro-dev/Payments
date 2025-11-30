@@ -1,8 +1,8 @@
-package br.com.desafios.candidatura.controller;
+package br.com.desafios.candidatura.adapters.inbound.controller;
 
-import br.com.desafios.candidatura.dto.PaymentCreditDTO;
-import br.com.desafios.candidatura.dto.PaymentDebitDTO;
-import br.com.desafios.candidatura.service.PaymentsService;
+import br.com.desafios.candidatura.adapters.inbound.dto.PaymentCreditDTO;
+import br.com.desafios.candidatura.adapters.inbound.dto.PaymentDebitDTO;
+import br.com.desafios.candidatura.application.service.PaymentsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

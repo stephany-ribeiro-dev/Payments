@@ -1,7 +1,7 @@
-package br.com.desafios.candidatura.service;
+package br.com.desafios.candidatura.application.service;
 
-import br.com.desafios.candidatura.dto.PaymentCreditDTO;
-import br.com.desafios.candidatura.dto.PaymentDebitDTO;
+import br.com.desafios.candidatura.adapters.inbound.dto.PaymentCreditDTO;
+import br.com.desafios.candidatura.adapters.inbound.dto.PaymentDebitDTO;
 import org.springframework.stereotype.Service;
 
 @Service

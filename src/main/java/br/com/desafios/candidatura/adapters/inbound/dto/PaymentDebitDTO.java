@@ -1,4 +1,4 @@
-package br.com.desafios.candidatura.dto;
+package br.com.desafios.candidatura.adapters.inbound.dto;
 
 import lombok.Data;
 import java.util.Date;
