@@ -15,16 +15,6 @@ public class PaymentsCreditUseCasesImpl implements PaymentsCreditUseCases{
 
     private final PaymentCreditMapper mapper;
 
-    //Criar use case de debito
-//    public void debitCard(PaymentsDebitDTO paymentsDebitDTO){
-//        System.out.println("Processando cartao de debito...");
-//        if( !validateDebitCard(paymentsDebitDTO)) {
-//            System.out.println("Falha na validacao do cartao de debito.");
-//            return;
-//        }
-//        processDebitCardPayment();
-//    }
-
     public PaymentsCredit creditCard(PaymentsCreditDTO paymentsCreditDTO){
         return creditRepository.save(
                 mapper.paymentsCreditDTOToPaymentsCredit(paymentsCreditDTO)

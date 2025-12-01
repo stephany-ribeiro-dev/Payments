@@ -11,8 +11,8 @@
 	<groupId>br.com.desafios</groupId>
 	<artifactId>candidatura</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>candidatura</name>
-	<description>Desafio Candidatura</description>
+	<name>Payments</name>
+	<description>Payments API Rest</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -59,16 +59,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-config</artifactId>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-web</artifactId>-->
-<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

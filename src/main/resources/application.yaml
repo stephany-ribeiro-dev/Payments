@@ -1,8 +1,8 @@
 spring:
   application:
-    name: candidatura
+    name: payments
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:paymentsdb
     username: sa
     password:
     driverClassName: org.h2.Driver
