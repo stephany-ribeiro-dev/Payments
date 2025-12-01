@@ -4,9 +4,8 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class PaymentDebitDTO {
+public class PaymentsDebitDTO {
 
-    private String type;
     private String payer;
     private String payee;
     private double amount;

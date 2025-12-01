@@ -1,14 +1,12 @@
 package br.com.desafios.candidatura.adapters.inbound.controller;
 
-import br.com.desafios.candidatura.adapters.inbound.dto.PaymentCreditDTO;
-import br.com.desafios.candidatura.adapters.inbound.dto.PaymentDebitDTO;
-import br.com.desafios.candidatura.application.service.PaymentsService;
+import br.com.desafios.candidatura.adapters.inbound.dto.PaymentsCreditDTO;
+import br.com.desafios.candidatura.application.usecases.PaymentsCreditUseCases;
+import br.com.desafios.candidatura.domain.paymentcredit.PaymentsCredit;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
     @RestController
@@ -16,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
     @RequestMapping("/payments")
     public class PaymentsController {
 
-        private final PaymentsService paymentsServices;
+        private final PaymentsCreditUseCases creditUseCases;
 
-        @PostMapping("/debits")
-        @ResponseStatus(HttpStatus.OK)
-        public void debitCard(PaymentDebitDTO paymentDebitDTO) {
-            paymentsServices.debitCard(paymentDebitDTO);
-        }
+//        @PostMapping("/debits")
+//        @ResponseStatus(HttpStatus.OK)
+//        public PaymentsDebit debitCard(@RequestBody PaymentsDebitDTO paymentsDebitDTO) {
+//            creditUseCases.debitCard(paymentsDebitDTO);
+//        }
 
         @PostMapping("/credits")
         @ResponseStatus(HttpStatus.OK)
-        public void creditCard(PaymentCreditDTO paymentCreditDTO) {
-            paymentsServices.creditCard(paymentCreditDTO);
+        public PaymentsCredit creditCard(@RequestBody @Valid PaymentsCreditDTO paymentCreditDTO) {
+            return creditUseCases.creditCard(paymentCreditDTO);
         }
 
     }
