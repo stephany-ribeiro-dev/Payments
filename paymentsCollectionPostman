@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "53c0fc0d-193d-456f-8d32-fa5a8a5aeb3c",
+		"name": "Payments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26487833"
+	},
+	"item": [
+		{
+			"name": "Post Credit Card Request",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"Credit\",\r\n  \"payer\": \"John Doe\",\r\n  \"payee\": \"ACME Corp\",\r\n  \"amount\": 150.75,\r\n  \"date\": \"2025-12-01T05:46:21.000Z\",\r\n  \"CVV\": \"123\",\r\n  \"cardNumber\": \"4111222233334444\",\r\n  \"expirationDate\": \"12/28\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/payments/credits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments",
+						"credits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payer\": \"John Doe\",\r\n  \"payee\": \"ACME Corp\",\r\n  \"amount\": 150.75,\r\n  \"date\": \"2025-12-01T05:46:21.000Z\",\r\n  \"cvv\": \"123\",\r\n  \"cardNumber\": \"4111222233334444\",\r\n  \"expirationDate\": \"12/28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payments/credits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments",
+								"credits"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Dec 2025 13:51:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"payer\": \"John Doe\",\n    \"payee\": \"ACME Corp\",\n    \"amount\": 150.75,\n    \"date\": \"2025-12-01T05:46:21.000+00:00\",\n    \"cardNumber\": \"4111222233334444\",\n    \"expirationDate\": \"12/28\",\n    \"cvv\": \"123\"\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payer\": \"John Doe\",\r\n  \"amount\": 150.75,\r\n  \"date\": \"2025-12-01T05:46:21.000Z\",\r\n  \"cvv\": \"123\",\r\n  \"cardNumber\": \"4111222233334444\",\r\n  \"expirationDate\": \"12/28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payments/credits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments",
+								"credits"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Dec 2025 13:52:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"payee is required\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Post Debit Card Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"payer\": \"John Doe\",\r\n  \"payee\": \"ACME Corp\",\r\n  \"amount\": 150.75,\r\n  \"date\": \"2025-12-01T05:46:21.000Z\",\r\n  \"accountNumber\": \"0856524\",\r\n  \"bankCode\": \"033\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/payments/debits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payments",
+						"debits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"payer\": \"John Doe\",\r\n  \"payee\": \"ACME Corp\",\r\n  \"amount\": 150.75,\r\n  \"date\": \"2025-12-01T05:46:21.000Z\",\r\n  \"accountNumber\": \"0856524\",\r\n  \"bankCode\": \"033\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payments/debits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments",
+								"debits"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Dec 2025 13:46:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"payer\": \"John Doe\",\n    \"payee\": \"ACME Corp\",\n    \"amount\": 150.75,\n    \"date\": \"2025-12-01T05:46:21.000+00:00\",\n    \"accountNumber\": \"0856524\",\n    \"bankCode\": \"033\"\n}"
+				},
+				{
+					"name": "400 Bad Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n  \"payee\": \"ACME Corp\",\r\n  \"amount\": 150.75,\r\n  \"date\": \"2025-12-01T05:46:21.000Z\",\r\n  \"accountNumber\": \"0856524\",\r\n  \"bankCode\": \"033\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/payments/debits",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payments",
+								"debits"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Dec 2025 13:48:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 400,\n    \"message\": \"payer is required\"\n}"
+				}
+			]
+		}
+	]
+}
